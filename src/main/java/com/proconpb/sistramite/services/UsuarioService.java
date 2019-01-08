@@ -8,6 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,10 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository repo;
+	
+	@Autowired
+	private BCryptPasswordEncoder pe;
+	//usar para trazer senha encriptada cp 66
 
 	public Usuario find(Integer id) {
 		UserSS user = UserService.authenticated();

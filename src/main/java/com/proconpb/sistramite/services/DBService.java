@@ -104,9 +104,9 @@ public class DBService {
 		fsc1.getAutos().addAll(Arrays.asList(auto1));
 		fsc2.getAutos().addAll(Arrays.asList(auto2));
 		
-		Usuario usu1 = new Usuario(null, "maria@procon.pb.gov.br", pe.encode("123456"));
+		Usuario usu1 = new Usuario(null, "halyne.dangelo@gmail.com", pe.encode("123456"));
 		usu1.addPerfil(Perfil.OPERADOR);
-		Usuario usu2 = new Usuario(null, "darcio@procon.pb.gov.br", pe.encode("123"));
+		Usuario usu2 = new Usuario(null, "halyne@procon.pb.gov.br", pe.encode("123"));
 		usu2.addPerfil(Perfil.ADMIN);
 
 		
