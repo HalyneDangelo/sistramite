@@ -28,7 +28,7 @@ public class UsuarioService {
 	
 	@Autowired
 	private BCryptPasswordEncoder pe;
-	//usar para trazer senha encriptada cp 66
+	//usar para trazer senha encriptada 66
 
 	public Usuario find(Integer id) {
 		UserSS user = UserService.authenticated();
