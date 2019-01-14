@@ -41,12 +41,12 @@ public class UsuarioService {
 				"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Usuario.class.getName()));
 	}
 
-	public Usuario findByLogin(String email) {
+	public Usuario findByEmail(String email) {
 		UserSS user = UserService.authenticated();
 		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
 			throw new AuthorizationException("Acesso negado");
 		}
-		Usuario obj = repo.findByLogin(email);
+		Usuario obj = repo.findByEmail(email);
 		if (obj == null) {
 			throw new ObjectNotFoundException(
 					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Usuario.class.getName());
@@ -86,7 +86,8 @@ public class UsuarioService {
 	}
 
 	private void updateData(Usuario newObj, Usuario obj) {
-		newObj.setLogin(obj.getLogin());
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
 		newObj.setSenha(obj.getSenha());
 	}
 }

@@ -25,7 +25,9 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String login;
+	@NotEmpty(message="Preenchimento obrigatório")
+	private String nome;
+	private String email;
 	
 	@JsonIgnore
 	@NotEmpty(message="Preenchimento obrigatório")
@@ -39,10 +41,11 @@ public class Usuario implements Serializable{
 		addPerfil(Perfil.OPERADOR);
 	}
 	
-	public Usuario(Integer id, String login, String senha) {
+	public Usuario(Integer id, String nome, String email, String senha) {
 		super();
 		this.id = id;
-		this.login = login;
+		this.nome=nome;
+		this.email = email;
 		this.senha = senha;
 	}
 	
@@ -54,12 +57,20 @@ public class Usuario implements Serializable{
 		this.id = id;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {

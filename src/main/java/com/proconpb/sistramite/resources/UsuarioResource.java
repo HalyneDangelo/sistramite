@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.proconpb.sistramite.domain.Usuario;
+import com.proconpb.sistramite.dto.UsuarioDTO;
 import com.proconpb.sistramite.services.UsuarioService;
 
 @RestController
@@ -31,9 +33,9 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@RequestMapping(value = "/login/{login}", method = RequestMethod.GET)
-	public ResponseEntity<Usuario> findLogin(@PathVariable String login) {
-		Usuario obj = service.findByLogin(login);
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public ResponseEntity<Usuario> find(@RequestParam(value="value") String email) {
+		Usuario obj = service.findByEmail(email);
 		return ResponseEntity.ok().body(obj);
 	}
 

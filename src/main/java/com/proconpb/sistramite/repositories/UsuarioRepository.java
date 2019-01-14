@@ -10,7 +10,7 @@ import com.proconpb.sistramite.domain.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	
 	@Transactional(readOnly=true)
-	Usuario findByLogin(String login);
+	Usuario findByEmail(String email);
 	
 //	@Transactional(readOnly=true)
 //	Optional<Usuario> findById(Integer id);
